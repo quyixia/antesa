@@ -7,12 +7,12 @@
 //
 
 #import <JSONModel/JSONModel.h>
-#import "BaseJSONModel.h"
+#import "BaseModel.h"
 #import#
 
 #protocol#
 
-@interface #name# : BaseJSONModel
+@interface #name# : BaseModel
 
 #property#
 
