@@ -1,0 +1,19 @@
+//
+//  #name#.h
+//  Vgo
+//
+//  Created by David Qu on 2015-3-31.
+//  Copyright (c) 2015 XJH.COM. All rights reserved.
+//
+
+#import <JSONModel/JSONModel.h>
+#import "BaseJSONModel.h"
+#import#
+
+#protocol#
+
+@interface #name# : BaseJSONModel
+
+#property#
+
+@end
