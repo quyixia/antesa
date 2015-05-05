@@ -1,0 +1,25 @@
+//
+//  #ApiClassName#.h
+//  Vgo
+//
+//  Created by David Qu on 15/3/3.
+//  Copyright (c) 2015年 XJH.COM. All rights reserved.
+//
+
+#import "VGBaseApi.h"
+#import "#ApiResultClassName#.h"
+
+/**
+ *
+ */
+@interface #ApiClassName# : VGBaseApi
+
+- (instancetype)initWith;
+
+- (BOOL)isSuccess;
+
+- (#ApiResultClassName# *)resultData;
+
+- (NSString *)methodString;
+
+@end

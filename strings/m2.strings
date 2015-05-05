@@ -1,0 +1,81 @@
+//
+//  #ApiClassName#.m
+//  Vgo
+//
+//  Created by David Qu on 15/3/3.
+//  Copyright (c) 2015年 www.xjh.com. All rights reserved.
+//
+
+#import "#ApiClassName#.h"
+
+#define myUrlMethod @"#methodName#"
+#define myUrlPath @"/appapi/#methodName#"
+
+@implementation #ApiClassName#
+{
+    NSString *_body;
+}
+
+
+#pragma mark - 初始化
+
+- (instancetype)initWith
+{
+    self = [super init];
+    if (self) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setValue:apiVersion forKey:@"version"];
+        [params setValue:[IDTools devId2] forKey:@"terminalCode"];
+        
+        
+        
+        _body = [@{@"params" : params} JSONString];
+        
+        NSLog(@"%@:\n %@%@?body=%@", myUrlMethod, apiBaseUrl, myUrlPath, _body);
+    }
+    return self;
+}
+
+
+#pragma mark - 父类继承拓展
+
+- (NSString *)requestUrl
+{
+    return myUrlPath;
+}
+
+- (id)requestArgument
+{
+    return @{ @"body" : _body };
+}
+
+- (NSString *)methodString
+{
+    return myUrlMethod;
+}
+
+
+#pragma mark - 通用
+
+- (#ApiResultClassName# *)resultData
+{
+    id myObj = [IDTools jsonStrToObjc:self.responseString method:myUrlMethod];
+    
+    #ApiResultClassName# *data = (#ApiResultClassName# *)myObj;
+    
+    NSLog(@"%@ resultData is %@", myUrlMethod, data);
+    
+    return data;
+}
+
+- (BOOL)isSuccess
+{
+    NSString *str = [[self resultData] result];
+    if ([NSString isStringEmpty:str] || ![str isEqualToString:@"1"]) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+@end
