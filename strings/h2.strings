@@ -10,7 +10,7 @@
 #import "#ApiResultClassName#.h"
 
 /**
- *
+ * #cct#
  */
 @interface #ApiClassName# : VGBaseApi
 
